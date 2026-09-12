@@ -1,0 +1,13 @@
+{
+  "name": "cheapskate",
+  "displayName": "Cheapskate",
+  "version": "1.0.0",
+  "description": "Extreme token, tool-call, file-read, and context economy mode that never reduces output quality.",
+  "author": {
+    "name": "mazenmohammed24",
+    "url": "https://github.com/mazenmohammed24"
+  },
+  "homepage": "https://github.com/mazenmohammed24/cheapskate",
+  "license": "MIT",
+  "keywords": ["token-efficiency", "cost", "agent-skill", "coding-agent", "context-management"]
+}

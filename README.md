@@ -5,9 +5,11 @@
 ### The skill that puts your AI coding agent on a budget — and makes it work harder because of it.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Works with](https://img.shields.io/badge/works%20with-6%20agents-brightgreen)](#install)
-[![Format](https://img.shields.io/badge/format-plain%20markdown-lightgrey)](#install)
-[![Stars](https://img.shields.io/github/stars/USERNAME/cheapskate?style=social)](https://github.com/USERNAME/cheapskate)
+[![Works with](https://img.shields.io/badge/works%20with-30%2B%20agents-brightgreen)](#install)
+[![AGENTS.md](https://img.shields.io/badge/AGENTS.md-supported-000000)](https://agents.md)
+[![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-CC785C)](#install)
+[![Release](https://img.shields.io/github/v/release/mazenmohammed24/cheapskate)](https://github.com/mazenmohammed24/cheapskate/releases)
+[![Stars](https://img.shields.io/github/stars/mazenmohammed24/cheapskate?style=social)](https://github.com/mazenmohammed24/cheapskate)
 
 *It's the 28th of the month. Rent's paid. There's $11 left, and a week to go.*
 *You don't stop eating. You just stop wasting.*
@@ -92,11 +94,12 @@ Two more rules sit underneath the ladder:
 
 ## Install
 
-Same instructions, five formats, pick the one your agent reads:
+Same instructions, six formats, pick the one your agent reads:
 
 | Agent | File | Where it goes |
 |---|---|---|
-| Claude Code | [`cheapskate/SKILL.md`](cheapskate/SKILL.md) | copy the `cheapskate/` folder into `.claude/skills/` |
+| **[AGENTS.md](https://agents.md)** — the open standard read natively by 30+ tools (Codex CLI, Gemini CLI, Google Jules, Factory, Aider, Zed, Devin, VS Code, and more) | [`AGENTS.md`](AGENTS.md) | repo root |
+| Claude Code | [`cheapskate/SKILL.md`](cheapskate/SKILL.md) | copy the `cheapskate/` folder into `.claude/skills/`, or install as a plugin (below) |
 | VS Code Copilot | [`.github/copilot-instructions.md`](.github/copilot-instructions.md) | repo root |
 | Cursor | [`.cursor/rules/cheapskate.mdc`](.cursor/rules/cheapskate.mdc) | repo root |
 | Windsurf | [`.windsurfrules`](.windsurfrules) | repo root |
@@ -104,6 +107,40 @@ Same instructions, five formats, pick the one your agent reads:
 | Anything else | body of `cheapskate/SKILL.md`, below the `---` | paste into its system prompt / custom instructions |
 
 No build step, no dependency, no config flags. It's markdown. If your agent reads instructions, it reads this.
+
+### Install via command line
+
+Run from the root of the project you want it in:
+
+```bash
+# macOS / Linux — pick a target (or "all")
+curl -fsSL https://raw.githubusercontent.com/mazenmohammed24/cheapskate/main/install.sh | bash -s -- agents
+curl -fsSL https://raw.githubusercontent.com/mazenmohammed24/cheapskate/main/install.sh | bash -s -- claude
+curl -fsSL https://raw.githubusercontent.com/mazenmohammed24/cheapskate/main/install.sh | bash -s -- all
+```
+
+```powershell
+# Windows PowerShell
+irm https://raw.githubusercontent.com/mazenmohammed24/cheapskate/main/install.ps1 -OutFile install.ps1; ./install.ps1 agents
+```
+
+Targets: `agents` (universal `AGENTS.md`, default) · `claude` · `copilot` · `cursor` · `windsurf` · `cline` · `all`.
+
+### Claude Code — install as a plugin
+
+This repo is also a Claude Code plugin marketplace, so you can skip the copy-paste entirely:
+
+```
+/plugin marketplace add mazenmohammed24/cheapskate
+/plugin install cheapskate@cheapskate
+```
+
+or from a shell:
+
+```bash
+claude plugin marketplace add mazenmohammed24/cheapskate
+claude plugin install cheapskate@cheapskate
+```
 
 ## FAQ
 
@@ -121,6 +158,9 @@ No — those are opportunistic. Cheapskate uses them when they're around and ask
 
 **What if I want it more (or less) aggressive?**
 It's a text file. Open it, tighten or loosen a rule, save. That's the whole extension mechanism.
+
+**Do I need the Claude Code plugin, or is copy-pasting the file enough?**
+Copy-pasting is enough — the plugin path just skips the copy-paste. Same file either way.
 
 ## Contributing
 

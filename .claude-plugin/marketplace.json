@@ -1,0 +1,23 @@
+{
+  "name": "cheapskate",
+  "owner": {
+    "name": "mazenmohammed24",
+    "url": "https://github.com/mazenmohammed24"
+  },
+  "description": "Token/tool/context-economy skill for AI coding agents",
+  "plugins": [
+    {
+      "name": "cheapskate",
+      "source": "./cheapskate",
+      "displayName": "Cheapskate",
+      "description": "Extreme token, tool-call, file-read, and context economy mode that never reduces output quality",
+      "version": "1.0.0",
+      "author": {
+        "name": "mazenmohammed24"
+      },
+      "homepage": "https://github.com/mazenmohammed24/cheapskate",
+      "license": "MIT",
+      "keywords": ["token-efficiency", "cost", "agent-skill", "coding-agent", "context-management"]
+    }
+  ]
+}
