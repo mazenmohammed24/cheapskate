@@ -1,8 +1,6 @@
 <div align="center">
 
-# 💸 Cheapskate
-
-### The skill that puts your AI coding agent on a budget — and makes it work harder because of it.
+<img src="./.github/social-preview.png" alt="Cheapskate — puts your AI coding agent on a budget, without cutting a single corner" width="100%">
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Works with](https://img.shields.io/badge/works%20with-30%2B%20agents-brightgreen)](#install)
