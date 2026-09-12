@@ -72,6 +72,8 @@ Honest caveats: this is one controlled trial, not a thousand-run average, and th
 
 The full benchmark harness — two identical repos, one bug, two agents — is described in the repo so you can run your own numbers instead of trusting ours.
 
+**Update:** a second, 5-stack pilot (Express, React, TypeScript, FastAPI, Django) is in [BENCHMARKS.md](BENCHMARKS.md) — same method, real per-run usage numbers. Aggregate: tool calls −15%, wall time −34%, tokens roughly flat (+0.5%). It also reports the one stack that got *worse* under Cheapskate (Express, +9% tokens/+28% time on this trial) rather than leaving it out.
+
 ## How it works
 
 Cheapskate isn't a vibe, it's a checklist the agent runs before every non-trivial action:
