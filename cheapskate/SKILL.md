@@ -140,6 +140,10 @@ Before any non-trivial action: if tokens were real money and the month was almos
 
 Some tasks are worth spending more on: production changes, irreversible actions, decisions nobody will double-check before they ship. For those, read `HIGH_STAKES.md` at the root of this repo — it trades tokens for confidence in ways this file deliberately doesn't allow by default.
 
+## Stack-specific weaknesses
+
+Every stack has its own well-known ways an AI agent gets it subtly wrong — a framework version mismatch, an ORM pattern that compiles fine and silently issues hundreds of extra queries, an async footgun specific to that runtime. `stacks/` in this repo holds one short file per stack (React, Next.js, Angular, Vue, Nuxt, Svelte/SvelteKit, TypeScript, Astro, React Native, Flutter, Node/Express, NestJS, Django, FastAPI, Spring Boot, Go, Laravel, Rails, .NET, and the SQL/relational-DB layer common to all of them). If the project you're working in matches one, read that file too — a few extra lines, not a survey course.
+
 ## This file has a cost too
 
 Every rule above is read on every single invocation of this skill — a fixed cost paid forever, against a saving that only shows up on some tasks. If you're extending this file, that trade is real: a rule earns its place only if what it saves, amortized over typical use, outweighs the tokens it costs just by being there every time. When in doubt, cut it rather than add it.

@@ -100,6 +100,12 @@ Three more levers move the token bill, but none of them belong in an instruction
 
 These aren't enforced by Cheapskate itself — they're worth knowing regardless of which rule file you install.
 
+## Stack-specific weaknesses
+
+`stacks/` holds one short file per stack — the well-known ways an AI agent gets *that specific stack* subtly wrong (a framework-version mismatch, an ORM pattern that compiles fine and silently fires hundreds of extra queries, an async footgun specific to that runtime). Not general best practices — just the non-obvious failure modes.
+
+Covers 20 of the most-used frontend and backend stacks: [React](stacks/react.md), [Next.js](stacks/nextjs.md), [Angular](stacks/angular.md), [Vue](stacks/vue.md), [Nuxt](stacks/nuxt.md), [Svelte/SvelteKit](stacks/sveltekit.md), [TypeScript](stacks/typescript.md), [Astro](stacks/astro.md), [React Native](stacks/react-native.md), [Flutter](stacks/flutter.md), [Node/Express](stacks/express.md), [NestJS](stacks/nestjs.md), [Django](stacks/django.md), [FastAPI](stacks/fastapi.md), [Spring Boot](stacks/spring-boot.md), [Go](stacks/go.md), [Laravel](stacks/laravel.md), [Rails](stacks/rails.md), [.NET](stacks/dotnet.md), and the [SQL/relational-DB layer](stacks/sql.md) underneath most of them. Drop in whichever ones match your project alongside the core rule file — the core rules point here too.
+
 ## Install
 
 Same instructions, six formats, pick the one your agent reads:
