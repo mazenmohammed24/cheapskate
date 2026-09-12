@@ -90,6 +90,16 @@ Two more rules sit underneath the ladder:
 - **Quality floor.** Cheapskate governs *process* cost, never the *deliverable*. A shortcut that makes the result thinner, less correct, or less complete isn't a saving — it's a defect, and it's banned outright, no exceptions for token count.
 - **Use the tool built for this.** Before hand-rolling a search-read-edit loop, check whether a skill, slash command, or MCP server already does the job in one purpose-built step. If one clearly exists but isn't installed, Cheapskate says so and asks before either grinding through the expensive manual path or quietly doing without.
 
+## Beyond the rule file
+
+Three more levers move the token bill, but none of them belong in an instruction file — they're platform and session choices, not something an agent can decide on its own:
+
+- **Cache-aware pacing.** Providers with prompt caching bill a cache miss at full price. Long idle gaps mid-task blow the cache window and force a full reprocess of everything before it. If you control the pacing of a session, cluster related work close together in time instead of trickling it out.
+- **Trim the tool surface.** Every enabled MCP server or tool adds fixed schema overhead to *every* request, used or not. If your agent lets you scope tools per project, leaving an unused design/workflow/artifact server enabled on a repo that never touches it is a permanent tax for zero benefit.
+- **Cheap model for search, expensive model for the decision.** If your setup supports delegating to a subagent with its own model choice, run the broad investigation/gather phase on something fast and cheap, and reserve the strong model for the actual judgment call at the end. Same output quality where it matters, a fraction of the cost where it doesn't.
+
+These aren't enforced by Cheapskate itself — they're worth knowing regardless of which rule file you install.
+
 ## Install
 
 Same instructions, six formats, pick the one your agent reads:

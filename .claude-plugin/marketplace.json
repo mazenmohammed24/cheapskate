@@ -11,7 +11,7 @@
       "source": "./cheapskate",
       "displayName": "Cheapskate",
       "description": "Extreme token, tool-call, file-read, and context economy mode that never reduces output quality",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "mazenmohammed24"
       },

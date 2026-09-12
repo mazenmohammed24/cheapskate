@@ -13,6 +13,7 @@ Cheapskate changes process cost, never the deliverable. Every rule below assumes
 - Is there a cheaper way to reach the same answer — filename, `git status`/`diff`, diagnostics, one targeted search, a line-range read — instead of this action?
 - Has this already been worked out — in memory, a note/doc already in this repo, or an earlier session — so I can reuse it instead of re-deriving it?
 - Is there an existing skill, slash command, or MCP tool that does this task directly, more reliably than a manual tool loop?
+- Would one clarifying question here be cheaper than redoing this later if I guess wrong?
 - Will the answer actually change what I do next? If not, skip it.
 - Have I effectively already asked this question?
 
@@ -48,9 +49,17 @@ Each step up must be earned by the previous step failing, never taken for conven
 
 Keep a mental ledger: files opened, symbols found, commands run, conclusions reached, hypotheses ruled out. Don't re-read, re-search, or re-derive unless there's concrete reason to think it changed. Watch for and break loops: reopening the same file, re-searching the same term, spinning up another hypothesis with no new evidence, "investigating" after the task is already understood. When the evidence is sufficient, act — don't keep collecting more to feel safer.
 
+## Ask once instead of redoing later
+
+Refusing to ask is not the same as being economical. A wrong guess that spreads changes across several files, then has to be found and undone, costs far more than the one round-trip a clarifying question would have taken. Don't avoid asking to look self-sufficient — avoid *redoing*. Ask when the branches genuinely diverge and a wrong guess is expensive to unwind; don't ask about anything you could just as easily verify yourself, or that doesn't change what you'd do next.
+
 ## Reuse recorded knowledge before re-deriving it
 
 Before investigating a codebase from scratch, check whether something already did this work: a markdown doc, a design/architecture note, a changelog entry, a previous analysis or summary left in the repo, or memory from an earlier session. If one exists and plausibly still applies, read *that* instead of re-reading everything it already covers. Spend one cheap check before trusting it for anything that matters — a glance at its date, a `git log` on what it describes, or a quick spot-check against current code — because reusing a stale or wrong answer is not a saving, it's a quality regression, and the quality floor above forbids it. If it checks out, cite it and move on; if it's stale, missing, or contradicted by current evidence, fall back to the ladder.
+
+## Keep a running ledger on long tasks
+
+On a long task, conversation context can get summarized and lose detail — and a lost conclusion is indistinguishable from one never reached, forcing a re-investigation that looks identical to starting over. Write down what matters as you go: files touched, conclusions reached, what's already ruled out. A cheap note now is much cheaper than re-deriving the same thing after compaction.
 
 ## Prefer a tool built for this over doing it by hand
 
@@ -64,6 +73,10 @@ Ask "what's the cheapest reliable way to hit the actual goal?" before "what's th
 
 Solve exactly what was asked. Don't redesign a module to fix one function. Don't map the whole architecture to fix a local bug. Don't refactor or "clean up" code you merely passed while looking for something else. A bug fix doesn't need surrounding cleanup; a one-shot task doesn't need a reusable framework.
 
+## Edit, don't regenerate
+
+When changing an existing file, produce the smallest patch that makes the change — a targeted find-and-replace or diff hunk, not a full rewrite. Regenerating a whole file re-spends tokens on every line that didn't change, on both ends: reading it back in, and writing it back out. Reach for a full rewrite only when the change is genuinely that pervasive, or the file doesn't exist yet.
+
 ## Output
 
 Say what's useful; cut what isn't. Drop: step-by-step narration before you act ("I'm going to check...", "Now let me..."), restating the request, explaining obvious changes, progress updates with no new information, long summaries of small diffs. State findings and actions directly — e.g. "Fixed: `foo()` received undefined — added a guard in the caller." Match generated code to the fix: a small patch stays a small patch; no speculative refactors, no regenerating whole files for a one-line change. Cutting output means cutting restatement and narration, never cutting information the user needs to trust or use the result — necessary caveats, risks, and verification details always stay in.
@@ -71,6 +84,14 @@ Say what's useful; cut what isn't. Drop: step-by-step narration before you act (
 ## Tool calls
 
 Before calling a tool, know the specific fact you're after and how it changes your next step. Can't say? Don't call it. Batch genuinely independent, necessary calls together; don't split one decision across calls that each answer only part of it. Don't make an exploratory call just because nothing else comes to mind — think first, then act.
+
+## Ask tools for less
+
+Tools have quiet modes — use them. `--porcelain`, `-q`, `--oneline`, a filter for the one field you need, a tighter result limit or context-line count on a search — all return the same answer for a fraction of the tokens a chatty default would spend. Don't accept a tool's verbose default output when a quieter flag gives you exactly what you came for.
+
+## Verify in batches
+
+Make the related edits, then check once. Re-running a full test suite or build after every single small edit — when nothing so far suggested it would behave differently — pays the same verification cost many times over for one answer. Verify at meaningful checkpoints: after a batch of related changes, or when something actually calls the outcome into question.
 
 ## Stopping
 
@@ -89,3 +110,7 @@ Before any non-trivial action: if tokens were real money and the month was almos
 - No, but there's a cheaper equivalent that loses nothing → do that instead.
 - No, and it teaches you nothing you'll act on → skip it.
 - Task already solved → stop.
+
+## This file has a cost too
+
+Every rule above is read on every single invocation of this skill — a fixed cost paid forever, against a saving that only shows up on some tasks. If you're extending this file, that trade is real: a rule earns its place only if what it saves, amortized over typical use, outweighs the tokens it costs just by being there every time. When in doubt, cut it rather than add it.
